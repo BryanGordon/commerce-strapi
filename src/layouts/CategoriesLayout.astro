@@ -1,0 +1,95 @@
+---
+
+---
+<body>
+  <header>
+    <h1>Welcome to new commerce</h1>
+  </header>
+
+  <section class="nav-section">
+    <h2>Categorias</h2>
+
+    <nav class="nav-container">
+      <ul>
+        <li>
+          Todos los productos
+        </li>
+        <li>
+          <a href="/camisetas">Camisetas</a>
+        </li>
+        <li>
+          <a href="/pantalones">Pantalones</a>
+        </li>
+        <li>
+          <a href="/zapatos">Zapatos</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <section>
+    <slot />
+  </section>
+
+  <footer>
+    Footer de la web
+  </footer>
+</body>
+
+<style is:global>
+  body {
+    background: #13151a;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .nav-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h2 {
+      font-size: 2rem;
+      margin-bottom: 35px;
+    }
+  }
+
+  .nav-container {
+    min-width: 75%;
+    margin: 15px;
+    
+    & ul {
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+
+      & li {
+        text-align: center;
+      }
+    }
+
+    & a {
+      color: white;
+      text-decoration: none;
+    }
+
+  }
+
+  footer {
+    margin-top: auto;
+    text-align: center;
+    background-color: rgba(42, 42, 42, 0.819);
+  }
+
+</style>
+
