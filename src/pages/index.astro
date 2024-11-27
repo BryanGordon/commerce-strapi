@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Categories from '../components/Categories.astro';
-import Products from '../components/Products.astro'
+import ProductsHome from '../components/ProductsHome.astro'
+import { ReadBlocks } from '../components/ReadBlocks.tsx';
 
 import fetchApi from '../lib/strapi'
 
@@ -15,9 +16,10 @@ const homeData = await fetchApi({
 	<main>
 		<header>
 			<h1>{homeData.title}</h1>
-			<p>
-				{homeData.description}
-			</p>
+			<div>
+				<ReadBlocks content = { homeData.description } />
+				
+			</di>
 		</header>
 
 		<section class="main-section">
@@ -25,7 +27,7 @@ const homeData = await fetchApi({
 			<Categories />
 	
 			<h2>Algunos Productos</h2>
-			<Products />
+			<ProductsHome />
 	
 			<h2>Direccion</h2>
 			Seccion de direccion
