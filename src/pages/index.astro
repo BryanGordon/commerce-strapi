@@ -10,6 +10,7 @@ const homeData = await fetchApi({
 	endpoint: 'home',
 	wrappedByKey: 'data'
 })
+
 ---
 
 <Layout title="Home commerce">
@@ -27,7 +28,21 @@ const homeData = await fetchApi({
 			<Categories />
 	
 			<h2>Algunos Productos</h2>
-			<ProductsHome />
+			{
+				homeData.products.products.map((item) => (
+				<div>
+					<p>
+						{item.name}
+					</p>
+					<p>{item.description}</p>
+					<img src={item.image} alt={item.name}>
+				</div>
+			))
+			}
+			{/*
+				<ProductsHome />
+			
+			*/}
 	
 			<h2>Direccion</h2>
 			Seccion de direccion
