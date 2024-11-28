@@ -12,7 +12,7 @@
     <nav class="nav-container">
       <ul>
         <li>
-          Todos los productos
+          <a href="/">Todos los productos</a>
         </li>
         <li>
           <a href="/camisetas">Camisetas</a>
@@ -52,15 +52,15 @@
     line-height: 1;
   }
 
+  h2 {
+      font-size: 2rem;
+      margin-bottom: 35px;
+    }
+
   .nav-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    & h2 {
-      font-size: 2rem;
-      margin-bottom: 35px;
-    }
   }
 
   .nav-container {
@@ -81,6 +81,9 @@
     & a {
       color: white;
       text-decoration: none;
+      line-height: 1em;
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
   }
@@ -89,6 +92,7 @@
     margin-top: auto;
     text-align: center;
     background-color: rgba(42, 42, 42, 0.819);
+    padding-block: 20px;
   }
 
 </style>
