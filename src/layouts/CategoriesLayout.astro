@@ -1,46 +1,47 @@
 ---
-
+import Layout from './Layout.astro'
 ---
-<body>
-  <header>
-    <h1>Welcome to new commerce</h1>
-  </header>
+<Layout title='Categorias'>
+  <main>
+    <header>
+      <h1>Welcome to new commerce</h1>
+    </header>
 
-  <section class="nav-section">
-    <h2>Categorias</h2>
+    <section class="nav-section">
+      <h2>Categorias</h2>
 
-    <nav class="nav-container">
-      <ul>
-        <li>
-          <a href="/">Todos los productos</a>
-        </li>
-        <li>
-          <a href="/camisetas">Camisetas</a>
-        </li>
-        <li>
-          <a href="/pantalones">Pantalones</a>
-        </li>
-        <li>
-          <a href="/zapatos">Zapatos</a>
-        </li>
-      </ul>
-    </nav>
-  </section>
+      <nav class="nav-container">
+        <ul>
+          <li>
+            <a href="/">Todos los productos</a>
+          </li>
+          <li>
+            <a href="/camisetas">Camisetas</a>
+          </li>
+          <li>
+            <a href="/pantalones">Pantalones</a>
+          </li>
+          <li>
+            <a href="/zapatos">Zapatos</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
 
-  <section>
-    <slot />
-  </section>
+    <section>
+      <slot />
+    </section>
 
-  <footer>
-    Footer de la web
-  </footer>
-</body>
+    <footer>
+      Footer de la web
+    </footer>
+  </main>
+
+</Layout>
 
 <style is:global>
-  body {
-    background: #13151a;
+  main {
     color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
