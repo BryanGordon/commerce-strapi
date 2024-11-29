@@ -4,7 +4,7 @@ import Categories from '../components/Categories.astro';
 import ProductsHome from '../components/ProductsHome.astro'
 import { ReadBlocks } from '../components/ReadBlocks.tsx';
 
-import fetchApi from '../lib/strapi'
+import fetchApi from '../lib/strapi.ts'
 
 const homeData = await fetchApi({
 	endpoint: 'home',
@@ -30,20 +30,14 @@ const homeData = await fetchApi({
 			<h2>Algunos Productos</h2>
 			{
 				homeData.products.products.map((item) => (
-				<div>
-					<p>
-						{item.name}
-					</p>
-					<p>{item.description}</p>
-					<img src={item.image} alt={item.name}>
-				</div>
+				<ProductsHome 
+					nameProduct = {item.name}
+					imgProduct = {item.image}
+					productDescription = {item.description}
+				/>
 			))
 			}
-			{/*
-				<ProductsHome />
-			
-			*/}
-	
+
 			<h2>Direccion</h2>
 			Seccion de direccion
 		</section>
