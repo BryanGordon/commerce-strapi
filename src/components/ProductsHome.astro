@@ -1,23 +1,23 @@
 ---
+interface Props  {
+  nameProduct: string,
+  imgProduct: string,
+  productDescription: string
+}
 
+const { nameProduct, imgProduct, productDescription } = Astro.props
 ---
 
 <article class="products-container">
-  <div class="product-container">
-    <h3>Producto 1</h3>
-    <img src="" alt="Imagen-producto">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi minus blanditiis enim suscipit repudiandae accusantium odit, ducimus iste aliquam?</p>
+
+  <div>
+    <h3>{nameProduct}</h3>
+    <picture>
+      <img src={imgProduct} alt={nameProduct}>
+    </picture>
+    <p>{productDescription}</p>
   </div>
-  <div class="product-container">
-    <h3>Producto 2</h3>
-    <img src="" alt="Imagen-producto">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi minus blanditiis enim suscipit repudiandae accusantium odit, ducimus iste aliquam?</p>
-  </div>
-  <div class="product-container">
-    <h3>Producto 3</h3>
-    <img src="" alt="Imagen-producto">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi minus blanditiis enim suscipit repudiandae accusantium odit, ducimus iste aliquam?</p>
-  </div>
+
 </article>
 
 <style>
@@ -30,10 +30,26 @@
   }
 
   h3 {
-    color: azure;
+    color: white;
+    padding-left: 35px;
   }
+
+  picture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    & img {
+      width: 50%;
+      margin: 0 auto;    
+      align-items: center;
+    }
+  }
+
+  
 
   p {
     color: whitesmoke;
+    padding-left: 35px;
   }
 </style>
