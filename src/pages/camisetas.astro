@@ -1,5 +1,14 @@
 ---
 import CategoriesLayout from '../layouts/CategoriesLayout.astro'
+
+import fetchApi from '../lib/strapi.ts'
+const URL = "http://localhost:1337"
+
+const camisetas = await fetchApi({
+  endpoint: 'camisetas?populate=shirtImage',
+  wrappedByKey: 'data'
+})
+
 ---
 
 <CategoriesLayout>
@@ -12,11 +21,11 @@ import CategoriesLayout from '../layouts/CategoriesLayout.astro'
 
       <div class="product-container">
         <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="product-image">
+          <img src={URL + camisetas[1].shirtImage.url} alt={camisetas[1].shirtName}>
         </picture>
         <div class="info-container">
-          <span>Product name</span>
-          <span>Producy Price</span>
+          <span>{camisetas[1].shirtName}</span>
+          <span>${camisetas[1].shirtPrice}</span>
         </div>
       </div>
 
