@@ -1,0 +1,119 @@
+---
+import CategoriesLayout from '../layouts/CategoriesLayout.astro'
+
+import fetchApi from '../lib/strapi'
+
+const pantalones = await fetchApi({
+  endpoint: 'pantalones?populate=trouserImage',
+  wrappedByKey: 'data'
+})
+
+/* To do */
+
+/** 
+  * Cambiar el tamaño de la imagens de los pantalones y 
+    volverlas a subir al servidor
+  * Crear componente de React para todos los productos
+  * Crear pagina de los zapatos
+  * Creat props para el titulo del layout para que salga
+    la seccion en la que se encuentra el usuario
+*/
+---
+
+<CategoriesLayout>
+  <header>
+    <h2>Pantalones</h2>
+  </header>
+
+  <article>
+    <div class="data-container">
+      {
+        pantalones.map((item) => (
+          <div class="product-container">
+            <picture class="product-img">
+              <img src={import.meta.env.STRAPI_HOST +  item.trouserImage.url} alt="Pantalon-image">
+            </picture>
+            <div class="info-container">
+              <span>{item.trouserName}</span>
+              <span>${item.trouserPrice}</span>
+            </div>
+          </div>
+        ))
+      }
+
+      <div class="product-container">
+        <picture class="product-img">
+          <img src="HomerDomido.jpeg" alt="Pantalon-image">
+        </picture>
+        <div class="info-container">
+          <span>Pantalon 1</span>
+          <span>$23.99</span>
+        </div>
+      </div>
+
+      <div class="product-container">
+        <picture class="product-img">
+          <img src="ptn.jpg" alt="Pantalon-image">
+        </picture>
+        <div class="info-container">
+          <span>Pantalon 1</span>
+          <span>$23.99</span>
+        </div>
+      </div>
+
+      <div class="product-container">
+        <picture class="product-img">
+          <img src="HomerDomido.jpeg" alt="Pantalon-image">
+        </picture>
+        <div class="info-container">
+          <span>Pantalon 1</span>
+          <span>$23.99</span>
+          
+        </div>
+      </div>
+
+    </div>
+  </article>
+</CategoriesLayout>
+
+<style>
+  article {
+    margin: 15px;
+    padding: 5px;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    justify-items: center;
+  }
+
+  .product-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(42, 42, 42, 0.819);
+    border-radius: 25px;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .product-img {
+      max-width: 70%;
+      margin: 0  auto;
+      & img {
+        max-width: 100%;
+        height: 400px;
+      }
+  }
+
+  .info-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+</style>
