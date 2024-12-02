@@ -2,7 +2,6 @@
 import CategoriesLayout from '../layouts/CategoriesLayout.astro'
 
 import fetchApi from '../lib/strapi.ts'
-const URL = "http://localhost:1337"
 
 const camisetas = await fetchApi({
   endpoint: 'camisetas?populate=shirtImage',
@@ -18,49 +17,19 @@ const camisetas = await fetchApi({
   
   <article>
     <div class="data-container">
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src={URL + camisetas[1].shirtImage.url} alt={camisetas[1].shirtName}>
-        </picture>
-        <div class="info-container">
-          <span>{camisetas[1].shirtName}</span>
-          <span>${camisetas[1].shirtPrice}</span>
+      {
+        camisetas.map((item) => (
+        <div class="product-container">
+          <picture class="product-img">
+            <img src={ import.meta.env.STRAPI_HOST + item.shirtImage.url} alt={item.shirtName}>
+          </picture>
+          <div class="info-container">
+            <span>{item.shirtName}</span>
+            <span>${item.shirtPrice}</span>
+          </div>
         </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="product-image">
-        </picture>
-        <div class="info-container">
-          <span>Product name</span>
-          <span>Producy Price</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="product-image">
-        </picture>
-        <div class="info-container">
-          <span>Product name</span>
-          <span>Producy Price</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="product-image">
-        </picture>
-        <div class="info-container">
-          <span>Product name</span>
-          <span>Producy Price</span>
-        </div>
-      </div>
-      
-    </div>
-
+        ))
+      }
 
   </article>
 </CategoriesLayout>
