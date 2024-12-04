@@ -11,8 +11,6 @@ const pantalones = await fetchApi({
 /* To do */
 
 /** 
-  * Cambiar el tamaño de la imagens de los pantalones y 
-    volverlas a subir al servidor
   * Crear componente de React para todos los productos
   * Crear pagina de los zapatos
   * Creat props para el titulo del layout para que salga
@@ -20,7 +18,7 @@ const pantalones = await fetchApi({
 */
 ---
 
-<CategoriesLayout>
+<CategoriesLayout section='Pantalones'>
   <header>
     <h2>Pantalones</h2>
   </header>
@@ -40,37 +38,6 @@ const pantalones = await fetchApi({
           </div>
         ))
       }
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Pantalon-image">
-        </picture>
-        <div class="info-container">
-          <span>Pantalon 1</span>
-          <span>$23.99</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="ptn.jpg" alt="Pantalon-image">
-        </picture>
-        <div class="info-container">
-          <span>Pantalon 1</span>
-          <span>$23.99</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Pantalon-image">
-        </picture>
-        <div class="info-container">
-          <span>Pantalon 1</span>
-          <span>$23.99</span>
-          
-        </div>
-      </div>
 
     </div>
   </article>
@@ -116,4 +83,5 @@ const pantalones = await fetchApi({
     justify-content: space-evenly;
     margin-top: 40px;
   }
+
 </style>
