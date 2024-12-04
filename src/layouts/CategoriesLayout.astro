@@ -1,7 +1,13 @@
 ---
 import Layout from './Layout.astro'
+
+interface Props {
+  section: string
+}
+
+const { section } = Astro.props 
 ---
-<Layout title='Categorias'>
+<Layout title=`Categorias - ${section}`>
   <main>
     <header>
       <h1>Welcome to new commerce</h1>
