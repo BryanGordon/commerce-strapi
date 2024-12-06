@@ -1,5 +1,13 @@
 ---
 import CategoriesLayout from '../layouts/CategoriesLayout.astro';
+
+import fetchApi from '../lib/strapi';
+
+const zapatos = await fetchApi({
+  endpoint: 'zapatos?populate=shoesImage',
+  wrappedByKey: 'data'
+})
+
 ---
 
 <CategoriesLayout section='Zapatos'>
@@ -10,11 +18,11 @@ import CategoriesLayout from '../layouts/CategoriesLayout.astro';
   <article>
     <div class="data-container">
 
-      {/* 
+      {
         zapatos.map((item) => (
         <div class="product-container">
           <picture class="product-img">
-            <img src={item.shoesImage} alt={item.shoesName}>
+            <img src={import.meta.env.STRAPI_HOST + item.shoesImage.url} alt={item.shoesName}>
           </picture>
           <div class="info-container">
             <span>{item.shoesName}</span>
@@ -22,50 +30,8 @@ import CategoriesLayout from '../layouts/CategoriesLayout.astro';
           </div>
         </div>
         ))
-      */}
+      }
 
-      
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Zapatos image">
-        </picture>
-        <div class="info-container">
-          <span>Zapato 1</span>
-          <span>$15.99</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Zapatos image">
-        </picture>
-        <div class="info-container">
-          <span>Zapato 1</span>
-          <span>$15.99</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Zapatos image">
-        </picture>
-        <div class="info-container">
-          <span>Zapato 1</span>
-          <span>$15.99</span>
-        </div>
-      </div>
-
-      <div class="product-container">
-        <picture class="product-img">
-          <img src="HomerDomido.jpeg" alt="Zapatos image">
-        </picture>
-        <div class="info-container">
-          <span>Zapato 1</span>
-          <span>$15.99</span>
-        </div>
-      </div>
-
-    </div>
   </article>
 </CategoriesLayout>
 
