@@ -1,4 +1,5 @@
 ---
+import { Products } from '../components/Products.tsx'
 import CategoriesLayout from '../layouts/CategoriesLayout.astro'
 
 import fetchApi from '../lib/strapi.ts'
@@ -19,15 +20,11 @@ const camisetas = await fetchApi({
     <div class="data-container">
       {
         camisetas.map((item) => (
-        <div class="product-container">
-          <picture class="product-img">
-            <img src={ import.meta.env.STRAPI_HOST + item.shirtImage.url} alt={item.shirtName}>
-          </picture>
-          <div class="info-container">
-            <span>{item.shirtName}</span>
-            <span>${item.shirtPrice}</span>
-          </div>
-        </div>
+        <Products 
+              nameProduct = {item.shirtName}
+              imageProduct = {item.shirtImage.url}
+              priceProduct = {item.shirtPrice}
+          />
         ))
       }
 
