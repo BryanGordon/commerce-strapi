@@ -1,4 +1,4 @@
-import Prueba from './Prueba.css'
+import '../styles/ProductItem.css'
 
 export function Products ({ nameProduct, imageProduct, priceProduct }) {
   return (
