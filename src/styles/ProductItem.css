@@ -1,0 +1,25 @@
+.product-container {
+  width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(42, 42, 42, 0.819);
+    border-radius: 25px;
+    margin: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.product-img {
+  max-width: 70%;
+      margin: 0  auto;
+      & img {
+        max-width: 100%;
+        height: 400px;
+      }
+}
+
+.info-container {
+  display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
