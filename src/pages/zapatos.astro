@@ -1,10 +1,11 @@
 ---
 import { Products } from '../components/Products.tsx'
-import CategoriesLayout from '../layouts/CategoriesLayout.astro';
+import CategoriesLayout from '../layouts/CategoriesLayout.astro'
+import type { Zapatos } from '../types/product'
 
 import fetchApi from '../lib/strapi';
 
-const zapatos = await fetchApi({
+const zapatos: Zapatos = await fetchApi({
   endpoint: 'zapatos?populate=shoesImage',
   wrappedByKey: 'data'
 })
@@ -20,7 +21,7 @@ const zapatos = await fetchApi({
     <div class="data-container">
 
       {
-        zapatos.map((item) => (
+        zapatos.data.map((item) => (
           <Products 
             nameProduct = {item.shoesName}
             imageProduct= {item.shoesImage.url}
