@@ -1,6 +1,12 @@
 import '../styles/ProductItem.css'
 
-export function Products ({ nameProduct, imageProduct, priceProduct }) {
+interface Product {
+  nameProduct: string,
+  imageProduct: string,
+  priceProduct: string
+}
+
+export function Products ({ nameProduct, imageProduct, priceProduct }: Product) {
   return (
     <>
         <div className="product-container">
